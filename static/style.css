@@ -1,0 +1,31 @@
+.main{
+    margin-top:3%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 10px;
+    
+}
+#username, #password, #loginBtn, #signupBtn, #name, #age, #phone, #stock{
+    margin-bottom: 10px;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#loginBtn{
+    background: rgb(0, 139, 104);
+    color: white;
+}
+#signupBtn{
+    background: rgb(167, 7, 28);
+    color: white;
+}
+.header{
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+#logoutBtn{
+    float: right;
+    margin-top:10px; 
+}
