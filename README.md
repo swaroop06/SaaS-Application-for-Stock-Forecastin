@@ -1,1 +1,1 @@
-# SaaS-Application-for-Stock-Forecastin
+# SaaS-Application-for-Stock-Forecasting
