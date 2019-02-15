@@ -29,3 +29,8 @@
     float: right;
     margin-top:10px; 
 }
+hr {
+    width: 20%;
+    border: 1px solid #f44336;
+    box-shadow: 0 10px 10px -10px #8c8c8c inset;
+  }
