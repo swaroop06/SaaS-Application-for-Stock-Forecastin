@@ -60,7 +60,7 @@ def registration():
 
 @app.route('/process')
 def process():
-    dfT= pd.read_csv('https://www.quandl.com/api/v3/datasets/NSE/IBULISL.csv?api_key=17qo2ogx-1KC1jEoox8d')
+    dfT= pd.read_csv('https://www.quandl.com/api/v3/datasets/NSE/'+request.args.get('sym')+'.csv?api_key=17qo2ogx-1KC1jEoox8d')
     prices = dfT['Close'].values.astype('float32')
     model = Sequential()   
     trainX, trainY, testX, testY=testandtrain(prices)
