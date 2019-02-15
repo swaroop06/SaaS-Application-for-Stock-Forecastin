@@ -1,4 +1,23 @@
 from flask import Flask, request, render_template, flash, session, redirect, url_for
+from functions import *
+import pandas as pd
+from keras.models import Sequential
+import numpy as np
+import scipy as sp
+import pandas as pd
+from subprocess import check_output
+import time, json
+from datetime import date
+import time
+import math
+from keras.models import Sequential
+from keras.layers.core import Dense, Dropout, Activation
+from keras.layers.recurrent import LSTM
+import numpy as np
+import pandas as pd
+import sklearn.preprocessing as prep
+import matplotlib.pylab as plt
+from matplotlib.pylab import rcParams
 app = Flask(__name__,template_folder='template')
 import os
 @app.route('/', methods=['GET','POST'])
@@ -39,6 +58,20 @@ def registration():
     return render_template('register.html',error=error)
 
 
+@app.route('/process')
+def process():
+    dfT= pd.read_csv('https://www.quandl.com/api/v3/datasets/NSE/IBULISL.csv?api_key=17qo2ogx-1KC1jEoox8d')
+    prices = dfT['Close'].values.astype('float32')
+    model = Sequential()   
+    trainX, trainY, testX, testY=testandtrain(prices)
+    model = trainingmodel(model, trainX, trainY)
+    predictingY=predicting(prices,testX,testY,trainX,model)
+    result=''
+    if predictingY[0][0]<predictingY[3][0]:
+        result='profit'
+    else:
+        result='loss'
+    return render_template('predict.html',plot='plot.jpg',res=result)
 
 if __name__ == '__main__':
     app.secret_key = os.urandom(12)
