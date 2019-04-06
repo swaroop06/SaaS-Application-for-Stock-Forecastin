@@ -14,6 +14,8 @@ import pandas as pd
 import sklearn.preprocessing as prep
 import matplotlib.pylab as plt
 from matplotlib.pylab import rcParams
+import random, string
+
 
 def create_dataset(dataset,past=5): # relating 5th day and 1st day
     dataX, dataY = [], []
@@ -45,7 +47,7 @@ def trainingmodel(model, trainX, trainY):
     model.add(LSTM(5, input_shape=(1,1)))
     model.add(Dense(1))
     model.compile(loss='mean_squared_error', optimizer='rmsprop')
-    model.fit(trainX, trainY, epochs=30, batch_size=1, verbose=2)
+    model.fit(trainX, trainY, epochs=10, batch_size=1, verbose=2)
     return model
 
 
@@ -66,6 +68,6 @@ def predicting(prices,testX,testY,trainX,model):
     error = math.sqrt(mean_squared_error(testY, testPredict))
     print('Test RMSE: %.3f' % error)
     plt.plot(testPredict,color="blue")
-    #plt.plot(testY,color='red')
-    plt.savefig('static/plot.jpg')
-    return testPredict
+    x = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits)).join('.jpg')
+    plt.savefig('static/'+x)
+    return testPredict,x

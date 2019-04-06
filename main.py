@@ -65,13 +65,13 @@ def process():
     model = Sequential()   
     trainX, trainY, testX, testY=testandtrain(prices)
     model = trainingmodel(model, trainX, trainY)
-    predictingY=predicting(prices,testX,testY,trainX,model)
+    predictingY,graph=predicting(prices,testX,testY,trainX,model)
     result=''
     if predictingY[0][0]<predictingY[3][0]:
         result='profit'
     else:
         result='loss'
-    return render_template('predict.html',plot='plot.jpg',res=result)
+    return render_template('predict.html',plot=graph+'.png',res=result)
 
 if __name__ == '__main__':
     app.secret_key = os.urandom(12)
