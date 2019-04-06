@@ -11,15 +11,39 @@
     <title>Prediction</title>
 </head>
 <body>
+		<nav class="navbar navbar-default " style="color:white; background : rgba(0,0,0,0); border:0px solid ; padding :10px;">
+				<div class="container-fluid">
+				  <div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+			  
+					</button>
+					 <a class="navbar-brand" rel="home" href="#" title="Stocks">
+					 <img style="width: 40%; margin-top: -30px;"
+						  src="../static/logo.png">
+				   </a> 
+				  </div>
+				  
+				 </div>
+			   </nav>
 	<div class="container main text-center">
 		<div class="row" style="margin-top:3%; margin-bottom:3%">
-			<div class="col-sm-6">
-				<h1>{{res}}</h1>
-				<hr>
+			
+			<div>
+				<img src="{{url_for('static',filename=plot)}}" style="width:80%;border-radius:20px;margin-left:-28px">
 			</div>
-			<div class="col-sm-6">
-				<img src="{{url_for('static',filename=plot)}}" style="height:350px;width:100%;border-radius:10px;margin-left:-28px">
-			</div>
+			<div>
+					<h2>{{res}} </h2>
+					<hr>
+					{% if res == 'profit' %}
+					<p><b> “The easiest way to manage your money is to take it one step at a time and not worry about being perfect.” – Ramit Sethi</b></p>
+					{% endif %}
+					{% if res == 'loss' %}
+					<p><b> “In many ways, the stock market is like the weather in that if you don’t like the current conditions all you have to do is wait a while.” – Low Simpson</b></p>
+					{% endif %}
+					
+				</div>
 		</div>
 	</div>
 </body>
