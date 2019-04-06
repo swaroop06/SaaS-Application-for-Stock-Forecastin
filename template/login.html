@@ -15,24 +15,27 @@
         <div>
         <div class="row">
             <div class="col-sm-6">
-                <img style="height:350px;width:100%;border-radius:10px;margin-left:-28px" src="../static/39d2b54e-025d-4353-8078-8a7bbc954c31.jpg">
+                <img style="width:40%;border-radius:10px;margin-left:10%; margin-top: 20%" src="../static/logo.png">
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6" style="margin-bottom:5%">
                 <h3 class="header">LOGIN</h3>
+                <hr>
                 <form action="/dashboard" method="POST">
                     {% if error %}
-                    <p><strong>Error:</strong> {{ error }}
+                    <p style="color:red"><strong style="color:black">Error:</strong> {{ error }} </p>
                     {% endif %}
                 
                 
                 <input id="username" name="username" class="form-control" placeholder="Username">
                 <input id="password" name="password" type="password" class="form-control" placeholder="Password">
                 
-                <input type="submit" class="btn " id="loginBtn" value="Login">
+                <input type="submit" class="btn " id="loginBtn" value="SUBMIT">
                 </form>
                 <form action="/register" method="POST">
-                    <input type="submit" class="btn" id="signupBtn" value="Register">
+                 <input type="submit" class="btn" id="signupBtn" value="REGISTER"> 
                 </form>
+                    
+                
                 
             </div>
         </div>

@@ -23,23 +23,23 @@ import os
 @app.route('/', methods=['GET','POST'])
 def index():
     if not session.get('logged_in'):
-        return render_template('login.html')
+        return render_template('home.html')
     else:
         return render_template('dashboard.html')
 
 
 @app.route('/dashboard',methods=['GET','POST'])
-def login():
+def CheckCredentials():
     if request.form['username'] != 'admin' or \
         request.form['password'] != 'admin':
         error = 'Invalid username or password. Please try again!'
     else:
         flash('You were successfully logged in')
-        return render_template('dashboard.html')
+        return render_template('dashboard.html', name = "John Doe")
     return render_template('login.html', error = error)
 
-@app.route('/home', methods=['GET','POST'])
-def home():
+@app.route('/login', methods=['GET','POST'])
+def Login():
     return render_template('login.html')
 
 @app.route('/register', methods=['GET','POST'])

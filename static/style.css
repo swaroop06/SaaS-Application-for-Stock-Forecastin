@@ -13,12 +13,13 @@
 }
 
 #loginBtn{
-    background: rgb(0, 139, 104);
+    background-image: linear-gradient(to right, #c31432 , #240b36);
     color: white;
 }
 #signupBtn{
-    background: rgb(167, 7, 28);
+    background-image: linear-gradient(to LEFT, #c31432 , #c31432);
     color: white;
+    
 }
 .header{
     margin-bottom: 20px;
@@ -26,8 +27,9 @@
 }
 
 #logoutBtn{
-    float: right;
-    margin-top:10px; 
+    background: #f44336;
+    color: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.02), 0 3px 6px rgba(0,0,0,0.23); 
 }
 hr {
     width: 20%;
