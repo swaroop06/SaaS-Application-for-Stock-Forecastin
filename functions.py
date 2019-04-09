@@ -67,7 +67,8 @@ def predicting(prices,testX,testY,trainX,model):
     testPredict = model.predict(testX)
     error = math.sqrt(mean_squared_error(testY, testPredict))
     print('Test RMSE: %.3f' % error)
+    plt.figure()
     plt.plot(testPredict,color="blue")
-    x = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits)).join('.jpg')
+    x = 'p'.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits)).join('.jpg')
     plt.savefig('static/'+x)
     return testPredict,x

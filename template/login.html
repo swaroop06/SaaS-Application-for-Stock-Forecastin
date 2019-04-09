@@ -20,15 +20,14 @@
             <div class="col-sm-6" style="margin-bottom:5%">
                 <h3 class="header">LOGIN</h3>
                 <hr>
-                <form action="/dashboard" method="POST">
+                <form action="/login" method="POST">
                     {% if error %}
                     <p style="color:red"><strong style="color:black">Error:</strong> {{ error }} </p>
                     {% endif %}
                 
                 
-                <input id="username" name="username" class="form-control" placeholder="Username">
+                <input id="username" name="email" class="form-control" type="email" placeholder="Email">
                 <input id="password" name="password" type="password" class="form-control" placeholder="Password">
-                
                 <input type="submit" class="btn " id="loginBtn" value="SUBMIT">
                 </form>
                 <form action="/register" method="POST">
